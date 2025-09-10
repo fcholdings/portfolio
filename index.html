@@ -52,16 +52,24 @@
     .footer{ margin-top:22px; font-size:12px; color:var(--sub); opacity:.9 }
     .flag{ font-size:20px; }
   </style>
-  <script>
-    // Optional: reorder buttons based on user language
-    document.addEventListener('DOMContentLoaded', () => {
-      try{
-        const lang = (navigator.language||'en').toLowerCase();
-        const btns = document.querySelector('.btns');
-        if(lang.startsWith('pt')){ btns.append(btns.firstElementChild); }
-      }catch(e){}
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Reordenar (já tinhas)
+    try{
+      const lang = (navigator.language||'en').toLowerCase();
+      const btns = document.querySelector('.btns');
+      if(lang.startsWith('pt')){ btns.append(btns.firstElementChild); }
+    }catch(e){}
+
+    // FORÇAR mesma aba para links com .btn
+    document.querySelectorAll('a.btn').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.assign(a.getAttribute('href'));
+      });
     });
-  </script>
+  });
+</script>
 </head>
 <body>
   <main class="card" role="main">
