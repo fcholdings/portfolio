@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio · English</title>
+  <style>
+    :root {
+      --bg:#ffffff;
+      --card:#f8f9fa;
+      --txt:#111827;
+      --sub:#4b5563;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--txt);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+    }
+    header{
+      position:sticky; top:0;
+      background:#ffffffcc;
+      border-bottom:1px solid #e5e7eb;
+      padding:12px 16px;
+      display:flex; gap:12px; align-items:center;
+      backdrop-filter:blur(6px);
+    }
+    header a{
+      color:var(--txt); text-decoration:none; font-weight:600;
+      border:1px solid #d1d5db;
+      padding:8px 12px; border-radius:8px;
+    }
+    .wrap{ max-width:1080px; margin:24px auto; padding:0 16px; }
+    .page{
+      background:var(--card);
+      border:1px solid #e5e7eb;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+      overflow:hidden;
+      margin:18px 0;
+    }
+    .page img{ width:100%; display:block; }
+    .caption{ color:var(--sub); font-size:13px; padding:10px 14px; border-top:1px solid #e5e7eb;}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="./">← Back</a>
+    <div>Portfolio · English</div>
+  </header>
+
+  <main class="wrap" id="gallery"></main>
+
+  <script>
+  const images = [
+   "assets/portfolio-en/portfolio-en_page-0001.jpg",
+    "assets/portfolio-en/portfolio-en_page-0002.jpg",
+    "assets/portfolio-en/portfolio-en_page-0003.jpg",
+    "assets/portfolio-en/portfolio-en_page-0004.jpg",
+    "assets/portfolio-en/portfolio-en_page-0005.jpg",
+    "assets/portfolio-en/portfolio-en_page-0006.jpg",
+    "assets/portfolio-en/portfolio-en_page-0007.jpg",
+    "assets/portfolio-en/portfolio-en_page-0008.jpg",
+    "assets/portfolio-en/portfolio-en_page-0009.jpg",
+    "assets/portfolio-en/portfolio-en_page-0010.jpg",
+    "assets/portfolio-en/portfolio-en_page-0011.jpg",
+    "assets/portfolio-en/portfolio-en_page-0012.jpg",
+    "assets/portfolio-en/portfolio-en_page-0013.jpg",
+    "assets/portfolio-en/portfolio-en_page-0014.jpg",
+    "assets/portfolio-en/portfolio-en_page-0015.jpg",
+    "assets/portfolio-en/portfolio-en_page-0016.jpg",
+    "assets/portfolio-en/portfolio-en_page-0017.jpg",
+    "assets/portfolio-en/portfolio-en_page-0018.jpg",
+  ];
+
+  const gallery = document.getElementById('gallery');
+  images.forEach((src, i) => {
+    const card = document.createElement('section');
+    card.className = 'page';
+    card.innerHTML = `
+      <a href="${src}" target="_blank" rel="noopener">
+        <img src="${src}" alt="Portfolio page ${i+1}" loading="lazy" />
+      </a>
+      <div class="caption">Page ${i+1}</div>
+    `;
+    gallery.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
